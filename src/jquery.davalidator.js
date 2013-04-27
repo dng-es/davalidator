@@ -1,7 +1,14 @@
-(function(global) {
-	daValidator = function(f,m,jQuery,undefined){
+/*!
+ * Davalidator v0.1
+ * http://daweed-es.github.io/davalidator/
+ * Released under the MIT license
+ * Author: David Noguera Gutierrez
+ * Date: 2013-4-28
+ */
+(function(global,undefined) {
+	daValidator = function(form,msg,jQuery){
 		//private properties
-		var formObj = document.forms[f],
+		var formObj = document.forms[form],
 			validatonSet = new Array();
 		//public properties and methods
 		this.numValidations = 0;
@@ -23,20 +30,20 @@
 				validationValue = document.getElementById(validatonSet[i][1]).value;
 				validationStateItem = daValidator.prototype[validatonSet[i][0]].apply(this, [validationValue,validatonSet[i][3]]);
 				if (validationStateItem==false){	
-					daValidator.prototype[m['msgType']].apply(this, [validatonSet[i],m['msgEffect']]);	
+					daValidator.prototype[msg['msgType']].apply(this, [validatonSet[i],msg['msgEffect']]);	
 					validationState =  false;}
 				else{
 					//remove all form alerts: tootip type
-					if (m['msgType']=="showToolTip"){$("#" + validatonSet[i][1]).attr("title","").tooltip("destroy");}
+					if (msg['msgType']=="showToolTip"){$("#" + validatonSet[i][1]).attr("title","").tooltip("destroy");}
 				}
 			}
 			//show jQueryUI-dialog if msgType=showDialog
-			if (m['msgType']=="showDialog" && validationState===false){
+			if (msg['msgType']=="showDialog" && validationState===false){
 				var msgHTML = "<div id='daValidator-dialog'><p>" + daValidator.prototype.dialogMsg + "</p></div>",
-					msgHTMLbtn = m['msgButton']!=undefined ? m['msgButton'] : "close",
-					msgHTMLtitle = m['msgTitle']!=undefined ? m['msgTitle'] : "form errors",
-					msgHTMLshow = m['msgShow']!=undefined ? m['msgShow'] : "fold",
-					msgHTMLhide = m['msgHide']!=undefined ? m['msgHide'] : "scale";
+					msgHTMLbtn = msg['msgButton']!=undefined ? msg['msgButton'] : "close",
+					msgHTMLtitle = msg['msgTitle']!=undefined ? msg['msgTitle'] : "form errors",
+					msgHTMLshow = msg['msgShow']!=undefined ? msg['msgShow'] : "fold",
+					msgHTMLhide = msg['msgHide']!=undefined ? msg['msgHide'] : "scale";
 				jQuery(formObj).after(msgHTML);
 				$("#daValidator-dialog:ui-dialog" ).dialog( "destroy" );      
 			    $("#daValidator-dialog" ).dialog({

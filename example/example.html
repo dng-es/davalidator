@@ -8,7 +8,7 @@
 
   <script type="text/javascript" src="js/jquery-1.9.1.js"></script>
   <script type="text/javascript" src="js/jquery-ui-1.10.2.custom.min.js"></script>
-  <script type="text/javascript" src="../src/jquery.davalidator.js"></script>
+  <script type="text/javascript" src="../src/jquery.davalidator.min.js"></script>
   <script>
   	$(document).ready(function(){     
 
@@ -82,7 +82,7 @@ b.addValidation("intValue","int_field2","INTEGER field");</pre>
 			<li>maxLenght</li>
 			<li>emailValue</li>
 		</ul>
-		<h3>Validation message types:</h3>
+		<h3>Message types:</h3>
 		<ul>	
 			<li>showAppend</li>
 			<li>showDialog</li>
@@ -103,7 +103,7 @@ b.addValidation("intValue","int_field2","INTEGER field");</pre>
 	b.addValidation("intValue","int_field2","INTEGER field");
 	//console.log("Validations b: " + b.numValidations);	
 
-	var c = new daValidator("myform3",{msgType : "showDialog",msgButton : "cerrar aviso",msgTitle : "errores del formulario",msgShow : "fold",msgHide : "scale"},$);
+	var c = new daValidator("myform3",{msgType : "showDialog",msgButton : "close dialog",msgTitle : "tittle form errors",msgShow : "fold",msgHide : "scale"},$);
 	c.addValidation("reqValue","req_field3","REQUIRED field.<br />");
 	c.addValidation("minLength","req_field3","MINLENGTH 4 required.<br />",4);
 	c.addValidation("maxLenght","req_field3","MAXLENGTH 6 required.<br />",6);

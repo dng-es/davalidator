@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>daValidator Examples</title>
+  <link rel="stylesheet" type="text/css" href="css/styles.css">
+  <link rel="stylesheet" type="text/css" href="css/le-frog/jquery-ui-1.10.2.custom.min.css">
+
+  <script type="text/javascript" src="js/jquery-1.9.1.js"></script>
+  <script type="text/javascript" src="js/jquery-ui-1.10.2.custom.min.js"></script>
+  <script type="text/javascript" src="../src/jquery.davalidator.js"></script>
+  <script>
+  	$(document).ready(function(){     
+
+
+  	});
+  </script>
+</head>
+<body>
+	<h1>daValidator Examples</h1>
+	<div id="examples-container">
+		<div>
+		  <h2>Example with alert()</h2>
+		  <form action="" name="myform" id="myform" method="post">
+		  	<label for="req_field">Required field</label>
+		  	<input type="text" name="req_field" id="req_field" />
+		  	<label for="int_field">Integer field</label>
+		  	<input type="text" name="int_field" id="int_field" />
+		  	<input type="submit" value="Send" />
+		  </form>
+		</div>
+
+		<div>
+		 <h2>Example with append-jQuery</h2>
+		  <form action="" name="myform2" id="myform2" method="post">
+		  	<label for="req_field2">Required field</label>
+		  	<input type="text" name="req_field2" id="req_field2" />
+		  	<label for="int_field2">Integer field</label>
+		  	<input type="text" name="int_field2" id="int_field2" />
+		  	<input type="submit" value="Send" />
+		  </form>
+		</div>
+
+		<div>
+		  <h2>Example with ToolTip()</h2>
+		  <form action="" name="myform4" id="myform" method="post">
+		  	<label for="req_field4">Required field</label>
+		  	<input type="text" name="req_field4" id="req_field4" />
+		  	<label for="int_field4">Integer field</label>
+		  	<input type="text" name="int_field4" id="int_field4" />
+		  	<input type="submit" value="Send" />
+		  </form>
+		</div>
+
+		<div>
+		 <h2>Example with dialog-jQueryUI</h2>
+		  <form action="" name="myform3" id="myform3" method="post">
+		  	<label for="req_field3">Required field</label>
+		  	<input type="text" name="req_field3" id="req_field3" title="algo de texto" />
+		  	<label for="int_field3">Integer field</label>
+		  	<input type="text" name="int_field3" id="int_field3" />
+		  	<label for="email_field3">Email field</label>
+		  	<input type="text" name="email_field3" id="email_field3" />
+		  	<input type="submit" value="Send" />
+		  </form>
+		</div>
+	</div>	
+
+	<div style="clear:both">
+		<h2>Usage</h2>
+		<p>A simple example which add one <em><b>reqValue</b></em> validation and one <em><b>intValue</b></em> validation to the form named <em><b>myform2</b></em> and field <em><b>req_field2</b></em>. It uses <em><b>showAppend</b></em> message type with a <em><b>fade</b></em> effect:</p>
+		<pre>
+var b = new daValidator("myform2",{msgType : "showAppend",msgEffect : "fade"},$);
+b.addValidation("reqValue","req_field2","REQUIRED field");
+b.addValidation("intValue","int_field2","INTEGER field");</pre>
+		<h3>Validation types:</h3>
+		<ul>
+			<li>reqValue</li>
+			<li>intValue</li>
+			<li>urlValue</li>
+			<li>minLength</li>
+			<li>maxLenght</li>
+			<li>emailValue</li>
+		</ul>
+		<h3>Validation message types:</h3>
+		<ul>	
+			<li>showAppend</li>
+			<li>showDialog</li>
+			<li>showToolTip</li>
+			<li>showAlert</li>
+		</ul>
+	</div>
+
+<script>
+
+	var a = new daValidator("myform",{msgType : "showAlert"},$);
+	a.addValidation("reqValue","req_field","REQUIRED field");
+	a.addValidation("intValue","int_field","INTEGER field");
+	//console.log("Validations a: " + a.numValidations);
+
+	var b = new daValidator("myform2",{msgType : "showAppend",msgEffect : "fade"},$);
+	b.addValidation("reqValue","req_field2","REQUIRED field");
+	b.addValidation("intValue","int_field2","INTEGER field");
+	//console.log("Validations b: " + b.numValidations);	
+
+	var c = new daValidator("myform3",{msgType : "showDialog",msgButton : "cerrar aviso",msgTitle : "errores del formulario",msgShow : "fold",msgHide : "scale"},$);
+	c.addValidation("reqValue","req_field3","REQUIRED field.<br />");
+	c.addValidation("minLength","req_field3","MINLENGTH 4 required.<br />",4);
+	c.addValidation("maxLenght","req_field3","MAXLENGTH 6 required.<br />",6);
+	c.addValidation("intValue","int_field3","INTEGER field.<br />");
+	c.addValidation("emailValue","email_field3","EMAIL field.<br />");
+	//console.log("Validations c: " + c.numValidations);		
+
+	var d = new daValidator("myform4",{msgType : "showToolTip"},$);
+	d.addValidation("reqValue","req_field4","REQUIRED field");
+	d.addValidation("intValue","int_field4","INTEGER field");
+	d.addValidation("minLength","int_field4","MINLENGTH 4 required.",4);
+
+</script>
+</body>
+</html>

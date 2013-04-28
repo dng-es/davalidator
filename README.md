@@ -7,3 +7,12 @@ Davalidator is a light Javascript HTML form validator which uses jQuery an jQuer
 - tooltip: using jQuery UI tooltip.
 - append messages: appends message alerts to the input using jQuery.
 - javascript alerts: the clasic javascript alerts. Just for nostalgic!.
+
+Validation types:
+
+- reqValue
+- intValue
+- urlValue
+- minLength
+- maxLenght
+- emailValue

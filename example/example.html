@@ -73,6 +73,13 @@
 var b = new daValidator("myform2",{msgType : "showAppend",msgEffect : "fade"},$);
 b.addValidation("reqValue","req_field2","REQUIRED field");
 b.addValidation("intValue","int_field2","INTEGER field");</pre>
+		<h3>Message types:</h3>
+		<ul>	
+			<li>showAppend</li>
+			<li>showDialog</li>
+			<li>showToolTip</li>
+			<li>showAlert</li>
+		</ul>
 		<h3>Validation types:</h3>
 		<ul>
 			<li>reqValue</li>
@@ -81,13 +88,7 @@ b.addValidation("intValue","int_field2","INTEGER field");</pre>
 			<li>minLength</li>
 			<li>maxLenght</li>
 			<li>emailValue</li>
-		</ul>
-		<h3>Message types:</h3>
-		<ul>	
-			<li>showAppend</li>
-			<li>showDialog</li>
-			<li>showToolTip</li>
-			<li>showAlert</li>
+			<li>regExprValue</li>
 		</ul>
 	</div>
 
@@ -107,6 +108,7 @@ b.addValidation("intValue","int_field2","INTEGER field");</pre>
 	c.addValidation("reqValue","req_field3","REQUIRED field.<br />");
 	c.addValidation("minLength","req_field3","MINLENGTH 4 required.<br />",4);
 	c.addValidation("maxLenght","req_field3","MAXLENGTH 6 required.<br />",6);
+	c.addValidation("regExprValue","req_field3","REGEXPR [a-z] required.<br />",'[a-z]');
 	c.addValidation("intValue","int_field3","INTEGER field.<br />");
 	c.addValidation("emailValue","email_field3","EMAIL field.<br />");
 	//console.log("Validations c: " + c.numValidations);		

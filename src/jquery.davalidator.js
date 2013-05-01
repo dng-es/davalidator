@@ -1,5 +1,5 @@
 /*!
- * Davalidator v0.1
+ * Davalidator v0.1.2
  * http://daweed-es.github.io/davalidator/
  * Released under the MIT license
  * Author: David Noguera Gutierrez
@@ -34,27 +34,12 @@
 					validationState =  false;}
 				else{
 					//remove all form alerts: tootip type
-					if (msg['msgType']=="showToolTip"){$("#" + validatonSet[i][1]).attr("title","").tooltip("destroy");}
+					if (msg['msgType']=="showToolTip"){$("#" + validatonSet[i][1]).attr("title","");}
 				}
 			}
 			//show jQueryUI-dialog if msgType=showDialog
-			if (msg['msgType']=="showDialog" && validationState===false){
-				var msgHTML = "<div id='daValidator-dialog'><p>" + daValidator.prototype.dialogMsg + "</p></div>",
-					msgHTMLbtn = msg['msgButton']!=undefined ? msg['msgButton'] : "close",
-					msgHTMLtitle = msg['msgTitle']!=undefined ? msg['msgTitle'] : "form errors",
-					msgHTMLshow = msg['msgShow']!=undefined ? msg['msgShow'] : "fold",
-					msgHTMLhide = msg['msgHide']!=undefined ? msg['msgHide'] : "scale";
-				jQuery(formObj).after(msgHTML);
-				$("#daValidator-dialog:ui-dialog" ).dialog( "destroy" );      
-			    $("#daValidator-dialog" ).dialog({
-			      modal: true,
-			      show: msgHTMLshow,
-			   	  hide: msgHTMLhide,
-			   	  resizable: false,
-			   	  title: msgHTMLtitle,
-			   	  dialogClass: "daValidator-dialog-info",
-			   	  buttons: [{ text: msgHTMLbtn, click: function(){$(this ).dialog( "close" );}}]
-			    });
+			if (msg['msgType']=="showDialog" && validationState===false){ 
+				daValidator.prototype.showDialogUI(formObj,msg);
 			}
 			return validationState;
 		}		
@@ -82,25 +67,38 @@
 	      	 }).tooltip("open");},	      	 	
 		showDialog : function(itemAlert){
 	      	 daValidator.prototype.dialogMsg += itemAlert[2]},
+	    showDialogUI : function(formObj,msg){
+				var msgHTML = "<div id='daValidator-dialog'><p>" + daValidator.prototype.dialogMsg + "</p></div>",
+					msgHTMLbtn = msg['msgButton']!=undefined ? msg['msgButton'] : "close",
+					msgHTMLtitle = msg['msgTitle']!=undefined ? msg['msgTitle'] : "form errors",
+					msgHTMLshow = msg['msgShow']!=undefined ? msg['msgShow'] : "fold",
+					msgHTMLhide = msg['msgHide']!=undefined ? msg['msgHide'] : "scale";
+				jQuery(formObj).after(msgHTML);
+				$("#daValidator-dialog:ui-dialog" ).dialog( "destroy" );      
+			    $("#daValidator-dialog" ).dialog({
+			      modal: true,
+			      show: msgHTMLshow,
+			   	  hide: msgHTMLhide,
+			   	  resizable: false,
+			   	  title: msgHTMLtitle,
+			   	  dialogClass: "daValidator-dialog-info",
+			   	  buttons: [{ text: msgHTMLbtn, click: function(){$(this ).dialog( "close" );}}]
+			    });
+	    	},
 	    showAlert : function(itemAlert){
 	      	 alert(itemAlert[2]);},
 		reqValue : function(){
-			if (arguments[0].replace(/^(\s|\&nbsp;)*|(\s|\&nbsp;)*$/g,"").length==0) {return false;}
-			else {return true;}},
+			return (arguments[0].replace(/^(\s|\&nbsp;)*|(\s|\&nbsp;)*$/g,"").length==0) ? false : true;},
 		intValue : function(){
 			var RegExPattern = /^(?:\+|-)?\d+$/;
-			if (arguments[0].match(RegExPattern) && (arguments[0]!='')) {return true;}
-			else {return false;}},
+			return (arguments[0].match(RegExPattern) && (arguments[0]!='')) ? true : false;},
 		urlValue : function(){
 			var RegExPattern = /^(ht|f)tp(s?)\:\/\/[0-9a-zA-Z]([-.\w]*[0-9a-zA-Z])*(:(0-9)*)*(\/?)( [a-zA-Z0-9\-\.\?\,\'\/\\\+&%\$#_]*)?$/;
-			if (arguments[0].match(RegExPattern) && (arguments[0]!='')) {return true;}
-			else {return false;}},
+			return (arguments[0].match(RegExPattern) && (arguments[0]!='')) ? true : false;},
 		minLength : function(){
-			if (arguments[0].replace(/^(\s|\&nbsp;)*|(\s|\&nbsp;)*$/g,"").length<arguments[1]) {return false;}
-			else {return true;}},
+			return (arguments[0].replace(/^(\s|\&nbsp;)*|(\s|\&nbsp;)*$/g,"").length<arguments[1]) ? false : true;},
 		maxLenght : function(){
-			if (arguments[0].replace(/^(\s|\&nbsp;)*|(\s|\&nbsp;)*$/g,"").length>arguments[1]) {return false;}
-			else {return true;}},
+			return (arguments[0].replace(/^(\s|\&nbsp;)*|(\s|\&nbsp;)*$/g,"").length>arguments[1]) ? false : true;},
 		emailValue : function(){
 		    if(arguments[0].length <= 0){
 			  return false;}
@@ -115,7 +113,10 @@
 			    var regexp_ip =/^\[\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}\]$/;
 			    if(splitted[2].match(regexp_ip) == null) return false;}
 		      return true;}
-			return false;}
+			return false;},
+		regExprValue : function(){
+			return arguments[0].match(arguments[1]) ? true : false;
+		}
 	}
   	global.daValidator = daValidator;
 })(this);

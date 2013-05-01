@@ -16,5 +16,6 @@ Validation types:
 - minLength
 - maxLenght
 - emailValue
+- regExprValue
 
 <a href="http://daweed-es.github.io/davalidator" target="_blank">More info</a>

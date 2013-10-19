@@ -1,7 +1,7 @@
 davalidator
 ===========
 
-jQuery plugin. Davalidator is a light Javascript HTML form validator which uses jQuery an jQuery UI for showing alerts in different ways:
+Davalidator is a light Javascript HTML form validator which uses jQuery an jQuery UI for showing alerts in different ways:
 
 - dialog: messages are shown with jQuery UI dialog.
 - tooltip: using jQuery UI tooltip.

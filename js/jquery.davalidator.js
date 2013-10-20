@@ -1,9 +1,10 @@
-/*!
+ /*!
  * Davalidator v0.1.2
- * http://daweed-es.github.io/davalidator/
- * Released under the MIT license
- * Author: David Noguera Gutierrez
- * Date: 2013-4-28
+ *
+ * @name     davalidator
+ * @author   David Noguera Gutierrez
+ * @date 	 2013-4-28
+ * @license	 Released under the MIT license
  */
 (function(global,undefined) {
 	daValidator = function(form,msg,jQuery){

@@ -1,13 +1,13 @@
  /*!
- * Davalidator v0.1.2
+ * Davalidator v0.1.2.1
  *
  * @name     davalidator
  * @author   David Noguera Gutierrez
- * @date 	 2013-4-28
+ * @date 	 2013-10-24
  * @license	 Released under the MIT license
  */
 (function(global,undefined) {
-	daValidator = function(form,msg,jQuery){
+	daValidator = function(form,msg){
 		//private properties
 		var formObj = document.forms[form],
 			validatonSet = new Array();

@@ -18,4 +18,4 @@ Validation types:
 - emailValue
 - regExprValue
 
-<a href="http://daweed-es.github.io/davalidator" target="_blank">More info</a>
+<a href="http://dng-es.github.io/davalidator" target="_blank">More info</a>

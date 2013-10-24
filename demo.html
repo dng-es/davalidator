@@ -1,117 +1,109 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
-<head>
-  <meta charset="utf-8">
-  <title>daValidator Examples</title>
-  <link rel="stylesheet" type="text/css" href="stylesheets/styles_demo.css">
-  <link rel="stylesheet" type="text/css" href="stylesheets/le-frog/jquery-ui-1.10.2.custom.min.css">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Davalidator by dng-es</title>
 
-  <script type="text/javascript" src="javascripts/jquery-1.9.1.js"></script>
-  <script type="text/javascript" src="javascripts/jquery-ui-1.10.2.custom.min.js"></script>
-  <script type="text/javascript" src="javascripts/jquery.davalidator.min.js"></script>
-</head>
-<body>
-	<h1>daValidator Examples</h1>
-	<div id="examples-container">
-		<div>
-		  <h2>Example with alert()</h2>
-		  <form action="" name="myform" id="myform" method="post">
-		  	<label for="req_field">Required field</label>
-		  	<input type="text" name="req_field" id="req_field" />
-		  	<label for="int_field">Integer field</label>
-		  	<input type="text" name="int_field" id="int_field" />
-		  	<input type="submit" value="Send" />
-		  </form>
-		</div>
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <link rel="stylesheet" type="text/css" href="stylesheets/styles_demo.css">
+    <link rel="stylesheet" type="text/css" href="stylesheets/le-frog/jquery-ui-1.10.2.custom.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <script type="text/javascript" src="javascripts/jquery-1.9.1.js"></script>
+    <script type="text/javascript" src="javascripts/jquery-ui-1.10.2.custom.min.js"></script>
+    <script type="text/javascript" src="javascripts/jquery.davalidator.min.js"></script>
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1>Davalidator</h1>
+        <p>jQuery plugin, forms validator.</p>
 
-		<div>
-		 <h2>Example with append-jQuery</h2>
-		  <form action="" name="myform2" id="myform2" method="post">
-		  	<label for="req_field2">Required field</label>
-		  	<input type="text" name="req_field2" id="req_field2" />
-		  	<label for="int_field2">Integer field</label>
-		  	<input type="text" name="int_field2" id="int_field2" />
-		  	<input type="submit" value="Send" />
-		  </form>
-		</div>
+        <p class="view"><a href="https://github.com/dng-es/davalidator">View the Project on GitHub <small>dng-es/davalidator</small></a></p>
 
-		<div>
-		  <h2>Example with ToolTip()</h2>
-		  <form action="" name="myform4" id="myform" method="post">
-		  	<label for="req_field4">Required field</label>
-		  	<input type="text" name="req_field4" id="req_field4" />
-		  	<label for="int_field4">Integer field</label>
-		  	<input type="text" name="int_field4" id="int_field4" />
-		  	<input type="submit" value="Send" />
-		  </form>
-		</div>
 
-		<div>
-		 <h2>Example with dialog-jQueryUI</h2>
-		  <form action="" name="myform3" id="myform3" method="post">
-		  	<label for="req_field3">Required field and min 4 chars</label>
-		  	<input type="text" name="req_field3" id="req_field3" title="algo de texto" />
-		  	<label for="int_field3">Integer field</label>
-		  	<input type="text" name="int_field3" id="int_field3" />
-		  	<label for="email_field3">Email field</label>
-		  	<input type="text" name="email_field3" id="email_field3" />
-		  	<input type="submit" value="Send" />
-		  </form>
-		</div>
-	</div>	
+        <ul>
+          <li><a href="https://github.com/dng-es/davalidator/zipball/master">Download <strong>ZIP File</strong></a></li>
+          <li><a href="https://github.com/dng-es/davalidator/tarball/master">Download <strong>TAR Ball</strong></a></li>
+          <li><a href="https://github.com/dng-es/davalidator">View On <strong>GitHub</strong></a></li>
+        </ul>
+      </header>
+      <section>
+        <h2>Example with alert()</h2>
+        <form action="" name="myform" id="myform" method="post">
+          <label for="req_field">Required field</label>
+          <input type="text" name="req_field" id="req_field" />
+          <label for="int_field">Integer field</label>
+          <input type="text" name="int_field" id="int_field" />
+          <input type="submit" value="Send" />
+        </form>
 
-	<div style="clear:both">
-		<h2>Usage</h2>
-		<p>A simple example which add both <em><b>reqValue</b></em> and <em><b>intValue</b></em> validation to the form named <em><b>myform2</b></em> and field <em><b>req_field2</b></em>. It uses <em><b>showAppend</b></em> message type with a <em><b>fade</b></em> effect:</p>
-		<pre>
-var b = new daValidator("myform2",{msgType : "showAppend",msgEffect : "fade"});
-b.addValidation("reqValue","req_field2","REQUIRED field");
-b.addValidation("intValue","int_field2","INTEGER field");</pre>
-		<h3>Message types:</h3>
-		<ul>	
-			<li>showAppend</li>
-			<li>showDialog</li>
-			<li>showToolTip</li>
-			<li>showAlert</li>
-		</ul>
-		<h3>Validation types:</h3>
-		<ul>
-			<li>reqValue</li>
-			<li>intValue</li>
-			<li>urlValue</li>
-			<li>minLength</li>
-			<li>maxLenght</li>
-			<li>emailValue</li>
-			<li>regExprValue</li>
-		</ul>
-	</div>
+        <h2>Example with append-jQuery</h2>
+        <form action="" name="myform2" id="myform2" method="post">
+          <label for="req_field2">Required field</label>
+          <input type="text" name="req_field2" id="req_field2" />
+          <label for="int_field2">Integer field</label>
+          <input type="text" name="int_field2" id="int_field2" />
+          <input type="submit" value="Send" />
+        </form>
 
-<script>
+        <h2>Example with ToolTip()</h2>
+        <form action="" name="myform4" id="myform" method="post">
+          <label for="req_field4">Required field</label>
+          <input type="text" name="req_field4" id="req_field4" />
+          <label for="int_field4">Integer field</label>
+          <input type="text" name="int_field4" id="int_field4" />
+          <input type="submit" value="Send" />
+        </form>
 
-	var a = new daValidator("myform",{msgType : "showAlert"});
-	a.addValidation("reqValue","req_field","REQUIRED field");
-	a.addValidation("intValue","int_field","INTEGER field");
-	//console.log("Validations a: " + a.numValidations);
+        <h2>Example with dialog-jQueryUI</h2>
+        <form action="" name="myform3" id="myform3" method="post">
+          <label for="req_field3">Required field and min 4 chars</label>
+          <input type="text" name="req_field3" id="req_field3" title="algo de texto" />
+          <label for="int_field3">Integer field</label>
+          <input type="text" name="int_field3" id="int_field3" />
+          <label for="email_field3">Email field</label>
+          <input type="text" name="email_field3" id="email_field3" />
+          <input type="submit" value="Send" />
+        </form>
+        <script>
 
-	var b = new daValidator("myform2",{msgType : "showAppend",msgEffect : "fade"});
-	b.addValidation("reqValue","req_field2","REQUIRED field");
-	b.addValidation("intValue","int_field2","INTEGER field");
-	//console.log("Validations b: " + b.numValidations);	
+          var a = new daValidator("myform",{msgType : "showAlert"});
+          a.addValidation("reqValue","req_field","REQUIRED field");
+          a.addValidation("intValue","int_field","INTEGER field");
+          //console.log("Validations a: " + a.numValidations);
 
-	var c = new daValidator("myform3",{msgType : "showDialog",msgButton : "close dialog",msgTitle : "tittle form errors",msgShow : "fold",msgHide : "scale"});
-	c.addValidation("reqValue","req_field3","REQUIRED field.<br />");
-	c.addValidation("minLength","req_field3","MINLENGTH 4 required.<br />",4);
-	c.addValidation("maxLenght","req_field3","MAXLENGTH 6 required.<br />",6);
-	c.addValidation("regExprValue","req_field3","REGEXPR [a-z] required.<br />",'[a-z]');
-	c.addValidation("intValue","int_field3","INTEGER field.<br />");
-	c.addValidation("emailValue","email_field3","EMAIL field.<br />");
-	//console.log("Validations c: " + c.numValidations);		
+          var b = new daValidator("myform2",{msgType : "showAppend",msgEffect : "fade"});
+          b.addValidation("reqValue","req_field2","REQUIRED field");
+          b.addValidation("intValue","int_field2","INTEGER field");
+          //console.log("Validations b: " + b.numValidations);  
 
-	var d = new daValidator("myform4",{msgType : "showToolTip"});
-	d.addValidation("reqValue","req_field4","REQUIRED field");
-	d.addValidation("intValue","int_field4","INTEGER field");
-	d.addValidation("minLength","int_field4","MINLENGTH 4 required.",4);
+          var c = new daValidator("myform3",{msgType : "showDialog",msgButton : "close dialog",msgTitle : "tittle form errors",msgShow : "fold",msgHide : "scale"});
+          c.addValidation("reqValue","req_field3","REQUIRED field.<br />");
+          c.addValidation("minLength","req_field3","MINLENGTH 4 required.<br />",4);
+          c.addValidation("maxLenght","req_field3","MAXLENGTH 6 required.<br />",6);
+          c.addValidation("regExprValue","req_field3","REGEXPR [a-z] required.<br />",'[a-z]');
+          c.addValidation("intValue","int_field3","INTEGER field.<br />");
+          c.addValidation("emailValue","email_field3","EMAIL field.<br />");
+          //console.log("Validations c: " + c.numValidations);    
 
-</script>
-</body>
+          var d = new daValidator("myform4",{msgType : "showToolTip"});
+          d.addValidation("reqValue","req_field4","REQUIRED field");
+          d.addValidation("intValue","int_field4","INTEGER field");
+          d.addValidation("minLength","int_field4","MINLENGTH 4 required.",4);
+
+        </script>
+      </section>
+      <footer>
+        <p>This project is maintained by <a href="https://github.com/dng-es">dng-es</a></p>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+      </footer>
+    </div>
+    <script src="javascripts/scale.fix.js"></script>
+    
+  </body>
 </html>

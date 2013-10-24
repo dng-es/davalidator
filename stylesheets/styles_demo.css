@@ -14,4 +14,4 @@ input[type=submit]{color:#000;cursor:pointer;display: block;margin:10px 0;paddin
   border:1px solid #d2d2d2;
   box-shadow:inset #fff 0 1px 0, inset rgba(0,0,0,0.03) 0 -1px 0;}
 input[type=submit]:hover{color:#666;}
-.davalidator-msg{padding: 1% 2%;background:#ccc;display: block;margin: 1% 0}
+.davalidator-msg{padding: 1% 2%;background:#F5f5f5;display: block;margin: 1% 0}
